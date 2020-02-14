@@ -33,13 +33,19 @@ class Quiz extends Component {
   };
 
   onAnswerClickHandler = answerId => {
-    console.log("Answer Id", answerId);
+    if (this.state.answerState) {
+      const key = Object.keys(this.state.answerState);
+      if (this.state.answerState[key] === "success") {
+        return;
+      }
+    }
 
     const question = this.state.quiz[this.state.activeQuestion];
-
     if (question.rightAnswerId === answerId) {
       this.setState({
-        answerState: { [answerId]: "success" }
+        answerState: {
+          [answerId]: "success"
+        }
       });
 
       const timeout = window.setTimeout(() => {
@@ -55,7 +61,9 @@ class Quiz extends Component {
       }, 1000);
     } else {
       this.setState({
-        answerState: { [answerId]: "error" }
+        answerState: {
+          [answerId]: "error"
+        }
       });
     }
   };
