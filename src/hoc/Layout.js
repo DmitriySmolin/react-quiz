@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Layout.css";
 import MenuToggle from "../components/Navigation/MenuToggle/MenuToggle";
 import Drawer from "../components/Navigation/Drawer/Drawer";
+
 class Layout extends Component {
   state = {
     menu: false
