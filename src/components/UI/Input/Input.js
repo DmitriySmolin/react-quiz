@@ -1,9 +1,9 @@
 import React from "react";
 import "./Input.css";
 
-const isInvalid = ({ valid, touched, shouldValidate }) => {
+function isInvalid({ valid, touched, shouldValidate }) {
   return !valid && shouldValidate && touched;
-};
+}
 
 const Input = props => {
   const inputType = props.type || "text";
@@ -13,6 +13,7 @@ const Input = props => {
   if (isInvalid(props)) {
     cls.push("invalid");
   }
+
   return (
     <div className={cls.join(" ")}>
       <label htmlFor={htmlFor}>{props.label}</label>
@@ -22,8 +23,9 @@ const Input = props => {
         value={props.value}
         onChange={props.onChange}
       />
+
       {isInvalid(props) ? (
-        <span>{props.errorMessage || "Введите правильное значение"}</span>
+        <span>{props.errorMessage || "Введите верное значение"}</span>
       ) : null}
     </div>
   );

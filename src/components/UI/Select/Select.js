@@ -2,10 +2,11 @@ import React from "react";
 import "./Select.css";
 
 const Select = props => {
-  const htmlFor = `${props.label} - ${Math.random()}`;
+  const htmlFor = `${props.label}-${Math.random()}`;
+
   return (
     <div className={"Select"}>
-      <label htmlFor={htmlFor}></label>
+      <label htmlFor={htmlFor}>{props.label}</label>
       <select id={htmlFor} value={props.value} onChange={props.onChange}>
         {props.options.map((option, index) => {
           return (
