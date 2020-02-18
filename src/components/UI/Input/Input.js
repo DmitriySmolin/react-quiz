@@ -1,8 +1,8 @@
 import React from "react";
 import "./Input.css";
 
-const isInvalid = () => {
-  return;
+const isInvalid = ({ valid, touched, shouldValidate }) => {
+  return !valid && shouldValidate && touched;
 };
 
 const Input = props => {
@@ -10,9 +10,9 @@ const Input = props => {
   const cls = ["Input"];
   const htmlFor = `${inputType}-${Math.random()}`;
 
-  //   if (isInvalid(props)) {
-  //     cls.push("invalid");
-  //   }
+  if (isInvalid(props)) {
+    cls.push("invalid");
+  }
   return (
     <div className={cls.join(" ")}>
       <label htmlFor={htmlFor}>{props.label}</label>
