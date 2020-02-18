@@ -14,7 +14,7 @@ const links = [
     exact: false
   },
   {
-    to: "/quiz-reactor",
+    to: "/quiz-creator",
     label: "Создать тест",
     exact: false
   }
